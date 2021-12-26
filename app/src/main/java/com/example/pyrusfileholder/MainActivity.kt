@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         supportFragmentManager.beginTransaction()
-            .add(R.id.fragment_container, FirstFragment(), "Fragment")
+            .add(R.id.fragment_container, FileListFragment(), "FileList")
             .commit()
 
 
