@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import com.example.pyrusfileholder.databinding.FragmentFileListBinding
 import com.example.pyrusfileholder.di.AppModule
 import com.example.pyrusfileholder.di.DaggerFileHolderComponent
+import com.example.pyrusfileholder.view.FileListViewImpl
 import javax.inject.Inject
 
 
@@ -41,8 +42,9 @@ class FileListFragment : Fragment(), FileListRouter {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val fileListView = FileListView(binding)
-        presenter.onAttach(fileListView, this)
+
+        val fileListView = FileListViewImpl(binding)
+        presenter.onAttach(fileListView, this, savedInstanceState)
 
         (activity as? AppCompatActivity)?.let {
             it.setSupportActionBar(binding.toolbar)

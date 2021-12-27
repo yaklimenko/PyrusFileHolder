@@ -14,10 +14,11 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        supportFragmentManager.beginTransaction()
-            .add(R.id.fragment_container, FileListFragment(), "FileList")
-            .commit()
-
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction()
+                .add(R.id.fragment_container, FileListFragment(), "FileList")
+                .commit()
+        }
 
     }
 }
