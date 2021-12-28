@@ -48,6 +48,10 @@ class FileService (
                 if (!cancelled) {
                     emitter.onError(e)
                 }
+            } finally {
+                try {
+                    inStr?.close()
+                } catch (ignored: Exception) {}
             }
         }
     }

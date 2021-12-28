@@ -152,14 +152,15 @@ class FileListPresenterImpl(
         if (files == null) {
             return
         }
-        val fileWrappers = files!!
-        view.updateList(fileWrappers)
-        if (fileWrappers.isEmpty()) {
-            view.showList(false)
-            view.showPlaceholder(true)
-        } else {
-            view.showList(true)
-            view.showPlaceholder(false)
+        files?.let {
+            view.updateList(it)
+            if (it.isEmpty()) {
+                view.showList(false)
+                view.showPlaceholder(true)
+            } else {
+                view.showList(true)
+                view.showPlaceholder(false)
+            }
         }
     }
 
